@@ -32,19 +32,19 @@ public abstract class AbstractTest {
     @Test
     public void testPatchAppliedCleanly() throws Exception {
         for (int i = 0; i < jsonNode.size(); i++) {
-            JsonNode first = jsonNode.get(i).get("node");
-            JsonNode second = jsonNode.get(i).get("expected");
+            JsonNode src = jsonNode.get(i).get("node");
             JsonNode patch = jsonNode.get(i).get("op");
+            JsonNode expected = jsonNode.get(i).get("expected");
             String message = jsonNode.get(i).has("message") ? jsonNode.get(i).get("message").toString() : "";
 
-            System.out.println("Test # " + i);
-            System.out.println(first);
-            System.out.println(second);
+            System.out.println("Test # " + i + ": " + message);
+            System.out.println(src);
+            System.out.println(expected);
             System.out.println(patch);
 
-            JsonNode secondPrime = JsonPatch.apply(patch, first);
+            JsonNode secondPrime = JsonPatch.apply(patch, src);
             System.out.println(secondPrime);
-            Assert.assertThat(message, secondPrime, equalTo(second));
+            Assert.assertThat(message, secondPrime, equalTo(expected));
         }
     }
 

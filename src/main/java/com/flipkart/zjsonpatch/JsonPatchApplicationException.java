@@ -5,15 +5,14 @@ package com.flipkart.zjsonpatch;
  * Date: 03/08/16
  */
 public class JsonPatchApplicationException extends RuntimeException {
+
+    private static final long serialVersionUID = 5904836540076002903L;
+
     public JsonPatchApplicationException(String message) {
         super(message);
     }
 
     public JsonPatchApplicationException(String message, Throwable cause) {
         super(message, cause);
-    }
-
-    public JsonPatchApplicationException(Throwable cause) {
-        super(cause);
     }
 }

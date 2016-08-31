@@ -1,4 +1,7 @@
-# This is an implementation of  [RFC 6902 JSON Patch](http://tools.ietf.org/html/rfc6902) written in Java.
+# Implementation of  [RFC 6902 JSON Patch](http://tools.ietf.org/html/rfc6902) in Java.
+
+Fork from original to use Java 8 instead of Guava library.
+Note: there is a dependency of JsonDiff on Apache commons-collections4 to be "provided"!
 
 ##Description & Use-Cases
 - Java Library to find / apply JSON Patches according to RFC 6902.
@@ -7,12 +10,7 @@
 - When used in combination with the HTTP PATCH method as per [RFC 5789 HTTP PATCH](http://tools.ietf.org/html/rfc5789), it will do partial updates for HTTP APIs in a standard  way.
 
 
-###Compatible with : Java 6 / 7 / 8
-
-##Code Coverage
-Package      |	Class, % 	 |  Method, % 	   |  Line, %           |
--------------|---------------|-----------------|--------------------|
-all classes  |	100% (6/ 6)  |	93.6% (44/ 47) |  96.2% (332/ 345)  |
+###Compatible with : Java 8
 
 ##Complexity
 - To find JsonPatch : Ω(N+M) ,N and M represents number of keys in first and second json respectively / O(summation of la*lb) where la , lb represents jsonArray of length la / lb of against same key in first and second json ,since LCS is used to find difference between 2 json arrays there of order of quadratic.
@@ -26,7 +24,7 @@ all classes  |	100% (6/ 6)  |	93.6% (44/ 47) |  96.2% (332/ 345)  |
 Add following to `<dependencies/>` section of your pom.xml -
 
 ```xml
-<groupId>com.flipkart.zjsonpatch</groupId>
+<groupId>com.github.vkovalchuk</groupId>
 <artifactId>zjsonpatch</artifactId>
 <version>{version}</version>
 ```
@@ -44,6 +42,13 @@ Add following to `<dependencies/>` section of your pom.xml -
 
 ## API Usage
 
+### Apply Json Patch
+```xml
+JsonNode target = JsonPatch.apply(JsonNode patch, JsonNode source);
+```
+Given a Patch, it applies it to source Json and returns a target json which can be (json object or array or value). 
+This operation is performed on a clone of source json (thus, source json is untouched and can be used further). 
+
 ### Obtaining Json Diff as patch
 ```xml
 JsonNode patch = JsonDiff.asJson(JsonNode source, JsonNode target)
@@ -57,13 +62,6 @@ The algorithm which computes this JsonPatch currently generates following operat
  - REMOVE
  - REPLACE
  - MOVE
- 
-
-### Apply Json Patch
-```xml
-JsonNode target = JsonPatch.apply(JsonNode patch, JsonNode source);
-```
-Given a Patch, it apply it to source Json and return a target json which can be ( json object or array or value ). This operation  performed on a clone of source json ( thus, source json is untouched and can be used further). 
 
 ### Example
 First Json
@@ -83,7 +81,7 @@ here o represents Operation, p represent fromPath from where value should be mov
 
 
 ### Tests:
-1. 100+ selective hardcoded different input jsons , with their driver test classes present under /test directory.
+1. 100+ selective hardcoded different input jsons, with their driver test classes present under /test directory.
 2. Apart from selective input, a deterministic random json generator is present under ( TestDataGenerator.java ),  and its driver test class method is JsonDiffTest.testGeneratedJsonDiff().
 
 
