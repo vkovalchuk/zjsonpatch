@@ -5,6 +5,8 @@ import java.util.*;
 /**
  * User: gopi.vishwakarma
  * Date: 30/07/14
+ *
+ * Changed by Vladimir Kovalchuk.
  */
 enum Operation {
     ADD("add"),

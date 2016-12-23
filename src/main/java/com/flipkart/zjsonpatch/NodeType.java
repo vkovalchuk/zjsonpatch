@@ -7,6 +7,10 @@ import java.util.EnumMap;
 import java.util.Map;
 import java.util.Objects;
 
+/**
+ *
+ * @author Changed by Vladimir Kovalchuk.
+ */
 enum NodeType {
     /**
      * Array nodes

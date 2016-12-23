@@ -14,6 +14,8 @@ import static org.hamcrest.core.IsEqual.equalTo;
 
 /**
  * @author ctranxuan (streamdata.io).
+ *
+ * @author Changed by Vladimir Kovalchuk.
  */
 public abstract class AbstractTest {
     static ObjectMapper objectMapper = new ObjectMapper();

@@ -5,6 +5,8 @@ package com.flipkart.zjsonpatch;
  * User: gopi.vishwakarma
  * Date: 10/07/15
  * Time: 10:35 AM
+ *
+ * Changed by Vladimir Kovalchuk.
  */
 interface Constants {
     String OP = "op";

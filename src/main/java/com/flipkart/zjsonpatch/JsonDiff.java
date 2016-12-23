@@ -13,6 +13,8 @@ import java.util.function.Function;
 /**
  * User: gopi.vishwakarma
  * Date: 30/07/14
+ *
+ * Changed by Vladimir Kovalchuk.
  */
 public final class JsonDiff {
 

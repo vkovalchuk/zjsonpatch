@@ -3,6 +3,8 @@ package com.flipkart.zjsonpatch;
 /**
  * User: holograph
  * Date: 03/08/16
+ *
+ * Changed by Vladimir Kovalchuk.
  */
 public class InvalidJsonPatchException extends JsonPatchApplicationException {
 

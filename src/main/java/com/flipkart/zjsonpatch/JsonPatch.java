@@ -13,6 +13,8 @@ import java.util.stream.Collectors;
 /**
  * User: gopi.vishwakarma
  * Date: 31/07/14
+ *
+ * Changed by Vladimir Kovalchuk.
  */
 public final class JsonPatch {
 
